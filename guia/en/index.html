@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your team of agents working 24 hours a day on OpenBot, with the AI subscription you already have — free kit</title>
+<meta name="description" content="A free kit for OpenBot: a team of agents ready in Portuguese (coordinator, finance assistant, organizer, and reviewer), secure installation with backup, and a checklist of what to change before letting the agents work on their own.">
+<link rel="canonical" href="https://inematds.github.io/seu-time-no-openbot/guia/en/">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/seu-time-no-openbot/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/seu-time-no-openbot/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/seu-time-no-openbot/guia/es/">
+<link rel="alternate" hreflang="x-default" href="https://inematds.github.io/seu-time-no-openbot/guia/">
+<meta property="og:title" content="Your team on OpenBot — agents working 24 hours a day with the AI subscription you already have">
+<meta property="og:description" content="A team of agents ready in Portuguese, secure installation with backup, and a security checklist. Free at inema.club.">
+<meta property="og:image" content="https://inematds.github.io/seu-time-no-openbot/guia/assets/banner-en.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#FACC15; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    --fill:#FACC15; --tint:rgba(250,204,21,.12); --ok:#7CE0C6; --bad:#F0918A;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#a16207; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    --fill:#FACC15; --tint:#FEF9C3; --ok:#0E6B55; --bad:#A83426;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light nav{background:rgba(246,247,249,.85)}
+  body.light .amb{color:var(--txt);background:linear-gradient(transparent 55%,#FACC15 55%)}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  body.light main a:not(.btn),body.light footer a{color:#854d0e;text-decoration:underline;text-decoration-color:#FACC15;text-decoration-thickness:3px}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb);white-space:nowrap}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut);white-space:nowrap} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:var(--tint)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--fill);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora;border:0;cursor:pointer;font-size:1rem}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:1360px){nav .links a.opt{display:none}}
+  @media(max-width:860px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(250,204,21,.18),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero .wrap>*{min-width:0}
+  .hero h1{font-size:clamp(2.1rem,4.6vw,3.3rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.15rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:46ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;height:auto;display:block}
+  .fonteof{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:.88rem;color:var(--mut)}
+  .fonteof img{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:#fff}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:66ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;min-width:0}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.95rem;margin:0}
+  .card p+p{margin-top:.6em}
+  .card ul{margin:8px 0 0;padding-left:20px;color:var(--mut);font-size:.95rem}.card li{margin:5px 0}
+  .card .tag{display:inline-block;font-family:Sora;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--txt);background:var(--tint);border:1px solid var(--line);border-radius:999px;padding:.1em .7em;margin-bottom:.6em;font-weight:600}
+  .quem-img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:12px;display:block;margin-bottom:14px;background:var(--bg2)}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.9rem;line-height:1.6;color:#d6d6e0;margin:.4em 0 0}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:4px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+  @media(max-width:720px){.stats{grid-template-columns:1fr}}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .stat b{display:block;font:800 clamp(1.9rem,4vw,2.6rem)/1.05 Sora,sans-serif;letter-spacing:-.02em;color:var(--amb)}
+  body.light .stat b{color:var(--txt)}
+  .stat span{display:block;color:var(--mut);font-size:.93rem;margin-top:.5em}
+  .fonte{font-size:.86rem;color:var(--mut);margin-top:14px;max-width:80ch}
+  .prova{background:var(--card);border:1px solid var(--amb);border-radius:16px;padding:26px 26px 22px;margin-top:6px}
+  body.light .prova{border-color:#EAB308}
+  .tl{list-style:none;margin:0;padding:0;counter-reset:t}
+  .tl li{position:relative;padding:0 0 18px 48px;counter-increment:t}
+  .tl li::before{content:counter(t);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:10px;background:var(--fill);color:#1a1206;font:800 .95rem/32px Sora,sans-serif;text-align:center}
+  .tl li::after{content:"";position:absolute;left:15px;top:36px;bottom:4px;width:2px;background:var(--line)}
+  .tl li:last-child::after{display:none}
+  .tl b{font-family:Sora}
+  .tl.hora li::before{content:attr(data-h);width:auto;min-width:32px;padding:0 6px;font-size:.8rem}
+  .tl.hora li{padding-left:72px}
+  blockquote{margin:6px 0 0;padding:14px 18px;border-left:3px solid var(--fill);background:var(--bg2);border-radius:0 10px 10px 0;font-size:1.02rem}
+  .prova .rod{font-size:.86rem;color:var(--mut);margin-top:14px}
+  .videobox{border:1px dashed var(--line);border-radius:14px;aspect-ratio:16/9;max-width:860px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;background:var(--card);color:var(--mut);text-align:center;padding:20px}
+  .videobox b{font-family:Sora;color:var(--txt);font-size:1.2rem}
+  .aviso{border-left:3px solid var(--bad)}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🤝</span> Your team on OpenBot</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#explicado">What you gain</a>
+    <a class="sec" href="#dia">In your day</a>
+    <a class="sec opt" href="#como">How it works</a>
+    <a class="sec" href="#seguranca">Security</a>
+    <a class="sec" href="#comecar">Getting started</a>
+    <a class="sec opt" href="#base">Where it comes from</a>
+    <a class="sec opt" href="#prova">The proof</a>
+    <span class="lang"><a href="../">PT</a><a class="on" href="./">EN</a><a href="../es/">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+    <a class="btn" href="https://github.com/inematds/seu-time-no-openbot" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Free kit for OpenBot · in Portuguese</span>
+      <h1>Your own <span class="amb">team of agents</span> working 24 hours a day, with the AI subscription you already have</h1>
+      <p class="lead">You send “lunch 29.90” on WhatsApp, and the finance assistant logs it. In the morning, the organizer has already sent the day's plan. OpenBot runs this team on your computer or a server; this kit gives you the ready-to-use team, secure installation, and backup.</p>
+      <div class="cta">
+        <a class="btn" href="#explicado">What you get</a>
+        <a class="btn ghost" href="#comecar">Getting started</a>
+      </div>
+      <div class="fonteof"><a href="https://github.com/nightly-labs" target="_blank" rel="noopener"><img src="https://github.com/nightly-labs.png?size=68" alt="nightly-labs GitHub account logo" width="34" height="34"></a><span>Runs on <a href="https://github.com/nightly-labs/openbot" target="_blank" rel="noopener">OpenBot</a>. The logo shows where the code comes from; this kit is not official.</span></div>
+    </div>
+    <figure><img src="../assets/banner-en.jpg" alt="Your team on OpenBot: agents working 24 hours a day with the AI subscription you already have"></figure>
+  </div>
+</header>
+
+<main>
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">In a nutshell</span>
+  <p><strong>You get a team of AI agents that works for you even when you are not watching.</strong> <strong>OpenBot</strong> is a program that runs agents on your computer or a rented server (a VPS), using the subscription you already pay for (ChatGPT, Claude, Gemini) or free models, and talks to you through the app, your phone, or WhatsApp. This kit, based on OpenBot's official documentation, includes <strong>four agents ready in Portuguese</strong>, installation with safeguards and backup, and the security changes to make before trusting them.</p>
+  <figure style="margin:22px 0 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-en.jpg" alt="Your team on OpenBot: what you get, a day with the team, how it works, getting started, security, and backup" loading="lazy" style="width:100%;height:auto;display:block"></figure>
+</div></section>
+
+<section id="explicado"><div class="wrap">
+  <span class="chip">What you gain</span>
+  <h2>Before and after <span class="amb">your team</span></h2>
+  <div class="grid g2">
+    <div class="card"><h3>😩 Without the team</h3><p>You open ChatGPT, explain everything again, copy the answer, and paste it somewhere else. An expense becomes a note in your wallet; a task becomes a reminder lost on your phone.</p><p>AI only works while you are in front of it.</p></div>
+    <div class="card"><h3>😌 With the team</h3><p>Each agent has a role and remembers what you have agreed on. You send a short message, and it handles its part.</p><p>With OpenBot on a server, the team stays there even when your computer is off.</p></div>
+  </div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card"><h3>🧭 One point of contact</h3><p>The <strong>orchestrator</strong> gets your request, calls the right person, and gives you one answer. It also builds new agents when you ask.</p></div>
+    <div class="card"><h3>💸 Expenses logged right away</h3><p>The <strong>finance assistant</strong> logs what you send by text, audio, or receipt photo, and shows you where the money went every week.</p></div>
+    <div class="card"><h3>✅ A day with direction</h3><p>The <strong>organizer</strong> turns a loose list into up to 3 priorities a day, each with a first step. The <strong>reviewer</strong> checks before anything goes out.</p></div>
+  </div>
+</div></section>
+
+<section id="quem"><div class="wrap">
+  <span class="chip">Who it's for</span>
+  <h2>What each person <span class="amb">gets</span></h2>
+  <div class="grid g4">
+    <div class="card"><img class="quem-img" src="../assets/quem-gastos.jpg" alt="Woman in a kitchen with a receipt and phone" loading="lazy" width="760" height="507"><h3>🏠 People who want to know where their money goes</h3><p>Send each expense as it happens, just as you would say it. On Sunday, see how much went to groceries, transport, and leisure.</p></div>
+    <div class="card"><img class="quem-img" src="../assets/quem-tarefas.jpg" alt="Father in the living room looking at his phone, with a child in the background" loading="lazy" width="760" height="507"><h3>📋 People with too much on their minds</h3><p>Put it all in one message. Get the day's plan and overdue tasks without having to remember them.</p></div>
+    <div class="card"><img class="quem-img" src="../assets/quem-negocio.jpg" alt="Small shop owner at the counter looking at a phone" loading="lazy" width="760" height="507"><h3>🏪 People who run a small business</h3><p>Use the same team for shop expenses and tasks. Note: commercial use of OpenBot requires its paid license (<a href="#faq">see details</a>).</p></div>
+    <div class="card"><img class="quem-img" src="../assets/quem-curioso.jpg" alt="Young person at night in front of a laptop and phone" loading="lazy" width="760" height="507"><h3>🧪 People who want to learn how agents really work</h3><p>See a complete team in action, read each agent's instructions, and create your own from them.</p></div>
+  </div>
+</div></section>
+
+<section id="base"><div class="wrap">
+  <span class="chip">Where it comes from</span>
+  <h2>Built entirely from <span class="amb">OpenBot's official documentation</span></h2>
+  <p class="sub">OpenBot belongs to another company. The kit does not change the program: it uses the formats documented by OpenBot itself and follows the security rules in its documentation.</p>
+  <div class="grid g3">
+    <div class="card"><h3>🧩 Agents and skills</h3><p>OpenBot explains how to save a way of working as a "skill" and import agents from a single file. The kit's four agents follow both formats and meet the size limits checked by its code.</p><p><a href="https://github.com/nightly-labs/openbot#local-skills" target="_blank" rel="noopener">Local skills in OpenBot</a></p></div>
+    <div class="card"><h3>🐳 Installation</h3><p>The kit uses the official installation method, with a pinned version, a memory limit, and backups done the way the documentation says: stop, copy everything together, start again.</p><p><a href="https://github.com/nightly-labs/openbot/blob/v0.77.0/docs/docker.md" target="_blank" rel="noopener">Installation documentation</a></p></div>
+    <div class="card"><h3>🔐 Warnings</h3><p>OpenBot itself warns that agents run with full access and that its WhatsApp integration is unofficial. The kit's checklist starts from those warnings.</p><p><a href="https://github.com/nightly-labs/openbot/blob/v0.77.0/SECURITY.md" target="_blank" rel="noopener">OpenBot security policy</a></p></div>
+  </div>
+  <p class="fonte">Version used: OpenBot 0.77.0, checked on 11/24/2026. OpenBot is free for personal, noncommercial use (PolyForm Noncommercial 1.0.0 license); commercial use requires its paid license.</p>
+</div></section>
+
+<section id="dia"><div class="wrap">
+  <span class="chip">In your day</span>
+  <h2>How this changes your <span class="amb">day</span></h2>
+  <p class="sub">Four common situations. You chat through the app, your phone, or WhatsApp, just as you would with a person.</p>
+  <div class="grid g2">
+    <div class="card"><h3>🍽️ "lunch 29,90 via Pix"</h3><p><strong>Today:</strong> you forget, and by the end of the month you don't know where your money went.</p><p><strong>With the team:</strong> the finance assistant replies, "Logged: lunch R$ 29,90 · Food · Pix," and saves it in a table you can open in any spreadsheet.</p></div>
+    <div class="card"><h3>🧾 A photo of your grocery receipt</h3><p><strong>Today:</strong> the paper disappears into your bag.</p><p><strong>With the team:</strong> it reads the total and date from the photo. If it can't read them, it asks only what's missing; it never makes up an amount.</p></div>
+    <div class="card"><h3>🤯 "I have a thousand things to do"</h3><p><strong>Today:</strong> you start with the easiest one and leave the important one for later.</p><p><strong>With the team:</strong> the organizer separates urgent from important and gives you 3 things to do today, each with a 15-minute first step.</p></div>
+    <div class="card"><h3>📤 "Send this summary to my wife"</h3><p><strong>Today:</strong> it goes out with a wrong calculation, and you only notice later.</p><p><strong>With the team:</strong> the reviewer checks the math and says "approved" or "redo it," with evidence. The team's instructions also say to wait for your yes before sending anything.</p></div>
+  </div>
+  <div class="prova" style="margin-top:22px">
+    <ol class="tl hora">
+      <li data-h="8h30"><b>The day's plan arrives on your phone</b><br><span class="mut">3 tasks in order, plus anything overdue from yesterday (when you turn on this routine).</span></li>
+      <li data-h="12h40"><b>You send the lunch expense</b><br><span class="mut">one-line reply, and it's in the table.</span></li>
+      <li data-h="18h"><b>Photo of your grocery receipt</b><br><span class="mut">logged with date, amount, and category.</span></li>
+      <li data-h="seg"><b>Monday at 8 a.m., the weekly summary</b><br><span class="mut">total, breakdown by category, biggest expenses, and the difference from the previous week.</span></li>
+    </ol>
+  </div>
+</div></section>
+
+<section id="video"><div class="wrap">
+  <span class="chip">Video</span>
+  <h2>Get the idea in a few minutes</h2>
+  <!-- VIDEO: add the project's explicavideo when it is published -->
+  <div class="videobox"><b>🎬 Video coming soon</b><span>The video explaining your team on OpenBot will appear here once it is published.</span><a href="#comecar">Meanwhile, see how to get started ↓</a></div>
+</div></section>
+
+<section id="como"><div class="wrap">
+  <span class="chip">How it works</span>
+  <h2>A small office, <span class="amb">without the jargon</span></h2>
+  <p class="sub">Think of an office with four people. OpenBot is the building; the AI you subscribe to is each person's brain; the kit is their training.</p>
+  <div class="grid g2">
+    <div class="card"><h3>🧭 The manager (orchestrator)</h3><p>You talk to it. It splits up your request, gives it to the right person, and comes back with the answer. To hire someone new, it first shows you who they are and what they will do, and creates them only after you say yes.</p></div>
+    <div class="card"><h3>📒 The expense notebook (finance assistant)</h3><p>A simple table in its folder: date, amount, what it was for, category, and payment method. Every week, it adds things up and tells the story.</p></div>
+    <div class="card"><h3>🗓️ The planner (organizer)</h3><p>A task list with due dates only when you provide them. It picks today's top 3 and the first step for each.</p></div>
+    <div class="card"><h3>🔍 The checker (reviewer)</h3><p>Like a cashier checking the change: the person who did the work doesn't check their own work. It recalculates and shows evidence for every error.</p></div>
+  </div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card"><h3>🏢 Why "24 hours a day"?</h3><p>OpenBot can run on a rented server (a VPS, a computer that stays on in a data center). Then the team keeps working with your computer off, and you can talk to it from your phone or browser. On your own computer, the team works while it is on.</p></div>
+    <div class="card aviso"><h3>⚠️ What the kit does not promise</h3><ul>
+      <li>It does not make AI smarter: it is the AI you subscribe to.</li>
+      <li>It does not pay, transfer money, or access a bank.</li>
+      <li>It has not been tested inside OpenBot with the agents talking to each other; the files follow the official format and pass the kit's checker.</li>
+      <li>It does not change OpenBot's license: commercial use still requires payment.</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section id="seguranca"><div class="wrap">
+  <span class="chip">Security</span>
+  <h2>What to change <span class="amb">before leaving the team on its own</span></h2>
+  <p class="sub">OpenBot itself warns that, by default, agents can change files, run commands, and use the internet without asking at every step. That is power, and also a risk. Five precautions address most of it.</p>
+  <div class="grid g3">
+    <div class="card"><h3>✋ Ask first</h3><p>Each agent has a permission level. Change "full access" to "ask first" for all four. An agent you create from another inherits its limits.</p></div>
+    <div class="card"><h3>📱 Use a separate WhatsApp SIM</h3><p>OpenBot's WhatsApp integration is unofficial, and WhatsApp may block the number. Use a SIM just for the team, never your important number.</p></div>
+    <div class="card"><h3>👤 A separate AI account</h3><p>The team uses your subscription, and the provider may restrict an account it thinks has exceeded normal use. If your account is for work or important, use another one for the team.</p></div>
+    <div class="card"><h3>🔑 Keep passwords in a vault</h3><p>Don't put passwords, card details, or codes in the conversation. The kit's skills already refuse to store them; use a password vault.</p></div>
+    <div class="card"><h3>💾 Daily backup</h3><p>The kit includes a complete rotating backup: it stops the program, copies everything together, and starts again. Keep a copy off the server.</p></div>
+    <div class="card"><h3>📜 The license</h3><p>OpenBot is free for personal use. If the team works for your company or clients, that is commercial use and requires its paid license.</p></div>
+  </div>
+  <p class="fonte">The full list, with a documentation page for each item, is in the <a href="https://github.com/inematds/seu-time-no-openbot/blob/main/SEGURANCA.md" target="_blank" rel="noopener">security checklist</a> (in Portuguese).</p>
+</div></section>
+
+<section id="comecar"><div class="wrap">
+  <span class="chip">Getting started</span>
+  <h2>Ask your AI to <span class="amb">explain the kit to you</span></h2>
+  <p class="sub">You don't need to install anything by hand or understand the files. Your AI reads the kit and tells you, in simple language, whether it is right for you and where to start.</p>
+  <div class="grid g3">
+    <div class="card"><h3>1. Open your AI</h3><p>Claude Code or Codex, in any folder on your computer.</p></div>
+    <div class="card"><h3>2. Paste the request below</h3><p>It asks the AI to read the kit and explain what each agent does, what you need, and what changes for your security.</p></div>
+    <div class="card"><h3>3. Say yes to what makes sense</h3><p>It shows you a plan in up to 5 steps and installs nothing before you say yes.</p></div>
+  </div>
+  <div style="margin-top:20px">
+<pre id="pedidoTxt" style="white-space:pre-wrap">Read the kit https://github.com/inematds/seu-time-no-openbot (README.md, SEGURANCA.md, and instalacao/VPS.md).
+Explain in simple language whether OpenBot is right for what I do, what each agent on the team does,
+what I need (a computer or VPS, an AI account, a separate WhatsApp number), and what changes for my security.
+Then tell me, in up to 5 steps, where I should start.
+Do not install anything, run docker, or change anything before I say yes.</pre>
+    <button class="btn" id="copiarPedido" style="margin-top:10px" type="button">Copy the request</button>
+  </div>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card"><h3>🌐 Can I use it without installing anything?</h3><p>Not entirely. OpenBot needs to run somewhere: on your computer or a server. After that, you can use it in your browser (openbot.run/app), through the mobile app, or on WhatsApp. According to OpenBot's documentation, checked on 11/24/2026.</p></div>
+    <div class="card"><h3>⬇️ Where can I download it?</h3><p>OpenBot for Windows, Mac, and Linux is on the official releases page. The ready-to-import team and the full kit are on the kit's GitHub.</p><p><a href="https://github.com/nightly-labs/openbot/releases" target="_blank" rel="noopener">OpenBot (official releases)</a><br><a href="https://github.com/inematds/seu-time-no-openbot/releases/latest/download/seu-time-openbot.zip">The ready-to-use team (.zip)</a><br><a href="https://github.com/inematds/seu-time-no-openbot/archive/refs/heads/main.zip">The full kit (.zip)</a></p></div>
+    <div class="card"><h3>🛠️ Is it technical?</h3><p>The step-by-step installation, including on a server, with commands, backup, and tests, is in the English README on GitHub (some detailed files are in Portuguese).</p><p><a class="btn ghost" href="https://github.com/inematds/seu-time-no-openbot/blob/main/README.en.md#technical-installation" target="_blank" rel="noopener">View the technical installation guide</a></p></div>
+  </div>
+</div></section>
+
+<section id="prova"><div class="wrap">
+  <span class="chip">The proof</span>
+  <h2>What has been tested, and what <span class="amb">hasn't yet</span></h2>
+  <p class="sub">No embellishment: the kit says what actually ran and what only checks against the official format.</p>
+  <div class="stats">
+    <div class="stat"><b>50 of 50</b><span>kit tests passing on 11/24/2026: skill limits, theme, team package, installation, and a full backup and restore.</span></div>
+    <div class="stat"><b>6 GB</b><span>memory limit for the installation. On a test server, on 11/24, OpenBot started with about 5.4 GB free and up to 8 tasks at once.</span></div>
+    <div class="stat"><b>0</b><span>ports open to the internet on the test server: access is only through the OpenBot app and website.</span></div>
+  </div>
+  <div class="prova" style="margin-top:22px">
+    <ol class="tl">
+      <li><b>Tested on the server on 11/24/2026</b><br><span class="mut">the kit's installation started OpenBot 0.77.0 without errors, and it replied that it was ready for login.</span></li>
+      <li><b>Tested in the kit</b><br><span class="mut">the checker compares each agent, the theme, and the installation against the rules in OpenBot's code; the backup was created and restored using a test folder in place of the data.</span></li>
+      <li><b>Not tested yet</b><br><span class="mut">login, connection to AI, WhatsApp, importing the team, and the agents talking inside OpenBot. These steps follow the official format and will be tested on the server.</span></li>
+    </ol>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <span class="chip">Common questions</span>
+  <h2>Before you <span class="amb">get started</span></h2>
+  <div class="grid g2">
+    <div class="card"><h3>Do I need to know how to code?</h3><p>Not to use the team: you just talk to it. For a server installation, it helps to have someone technical or ask your AI to guide you through the README steps.</p></div>
+    <div class="card"><h3>How much does it cost?</h3><p>The kit is free. OpenBot is free for personal use. You can use the AI subscription you already have, or OpenCode's free models. A rented server costs extra.</p></div>
+    <div class="card"><h3>Can I use it at my company?</h3><p>Commercial use of OpenBot requires its paid license (Starter and Team plans, in OpenBot's own settings). The kit does not change that.</p></div>
+    <div class="card"><h3>Is using my subscription allowed?</h3><p>It depends on the provider. OpenBot itself says that using Claude with a subscription carries a risk from "unclear" to "high" when other people use your agents. Read your provider's rules, and if the account is important, use another one.</p></div>
+    <div class="card"><h3>Could WhatsApp block me?</h3><p>It could. OpenBot uses an unofficial WhatsApp integration. That's why you should use a separate SIM just for the team.</p></div>
+    <div class="card"><h3>What if an agent messes up?</h3><p>With "ask first," it asks for permission. The kit's skills don't send anything out without your yes and don't delete anything you didn't ask them to. Daily backups let you roll back.</p></div>
+    <div class="card"><h3>Does my computer need to stay on?</h3><p>If OpenBot runs on your computer, yes. For 24-hour operation, run it on a server; the steps are in the README (in Portuguese).</p></div>
+    <div class="card"><h3>Can I change the agents?</h3><p>Yes. Each one's instructions are in Portuguese, in plain text. Change what you want, or ask the orchestrator to create a new agent.</p></div>
+  </div>
+  <p class="fonte" style="margin-top:22px">What about you: what's the first task you'd hand to a team that works 24 hours a day? The kit is free at inema.club, right on the internet.</p>
+</div></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">OpenBot 0.77.0</div><div class="pill">Docker</div><div class="pill">Python 3</div><div class="pill">MIT kit · OpenBot PolyForm Noncommercial</div>
+    <p style="margin-top:18px">Your team on OpenBot · free at inema.club, right on the internet ·
+      <a href="https://github.com/inematds/seu-time-no-openbot">inematds/seu-time-no-openbot</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+    <p style="font-size:.8rem">This kit is unofficial and is not affiliated with OpenBot's authors.</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='seu-time-no-openbot-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    try{ if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; } }catch(e){}
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      try{ localStorage.setItem(KEY, light?'light':'dark'); }catch(e){}
+    });
+  })();
+  (function(){
+    var bt=document.getElementById('copiarPedido'), tx=document.getElementById('pedidoTxt');
+    if(!bt||!tx) return;
+    var orig=bt.textContent;
+    bt.addEventListener('click',function(){
+      try{ navigator.clipboard.writeText(tx.textContent).then(function(){ bt.textContent='Copied ✓'; setTimeout(function(){bt.textContent=orig;},2000); }); }catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>
