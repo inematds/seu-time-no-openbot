@@ -1,0 +1,42 @@
+# compose.yaml do kit seu-time-no-openbot
+#
+# Derivado de docker/compose.yaml do OpenBot, tag v0.77.0
+# (commit 20d1cd63d95ac91f049054b1afdd00ece27b322b, https://github.com/nightly-labs/openbot).
+# O OpenBot é licenciado pela PolyForm Noncommercial License 1.0.0:
+#   https://polyformproject.org/licenses/noncommercial/1.0.0
+# Required Notice: Copyright 2026 Synthetify Labs spółka z ograniczoną odpowiedzialnością.
+# Required Notice: For a commercial license, contact licenses@openbot.run.
+# Uso comercial pede licença paga do OpenBot. Ver FONTE.md.
+#
+# Diferenças em relação ao oficial (cada uma vem de docs/docker.md da mesma tag):
+#   - image fixada em 0.77.0 em vez de latest ("Run": para fixar uma versão, use o número na
+#     imagem e baixe o seccomp.json da mesma tag);
+#   - mem_limit 6g ("Memory": o teto é o menor entre a memória da máquina e o limite do
+#     container; de 5 a 10 GiB o OpenBot roda até 8 turnos ao mesmo tempo, até 5 GiB roda 2).
+# O resto é igual ao oficial: seccomp, no-new-privileges, shm_size, stop_grace_period e o
+# volume openbot-data em /data. Sem porta publicada: o acesso é pelo app e por openbot.run/app.
+#
+# Numa pasta /opt/openbot, o Compose chama o volume de "openbot_openbot-data" e o container de
+# "openbot-openbot-1". backup.sh e restaurar.sh descobrem os dois sozinhos.
+#
+# Antes do primeiro "docker compose up -d", nesta pasta:
+#   curl -fsSLO https://raw.githubusercontent.com/nightly-labs/openbot/v0.77.0/docker/seccomp.json
+#   sha256sum -c seccomp.sha256
+# Não use seccomp=unconfined, --privileged nem --no-sandbox (docs/docker.md, "Security").
+# Não monte o socket do Docker nem a sua pasta pessoal aqui.
+
+services:
+  openbot:
+    image: ghcr.io/nightly-labs/openbot:0.77.0
+    restart: unless-stopped
+    security_opt:
+      - seccomp=./seccomp.json
+      - no-new-privileges:true
+    shm_size: 1g
+    stop_grace_period: 60s
+    mem_limit: 6g
+    volumes:
+      - openbot-data:/data
+
+volumes:
+  openbot-data:

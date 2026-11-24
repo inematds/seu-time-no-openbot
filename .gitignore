@@ -1,0 +1,6 @@
+dist/
+__pycache__/
+.pytest_cache/
+instalacao/seccomp.json
+*.tar.gz
+*.partial

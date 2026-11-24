@@ -1,0 +1,18 @@
+{
+  "name": "INEMA",
+  "appearance": "dark",
+  "colors": {
+    "canvas": "#0c0c10",
+    "frame": "#14141b",
+    "sidebar": "#14141b",
+    "surface": "#16161e",
+    "text": "#e9e9ee",
+    "textMuted": "#9a9aa6",
+    "border": "#272730",
+    "accent": "#FACC15",
+    "accentForeground": "#1a1206",
+    "success": "#7CE0C6",
+    "warning": "#F2B45C",
+    "danger": "#E0736F"
+  }
+}
