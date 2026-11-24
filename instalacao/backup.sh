@@ -49,11 +49,14 @@ if [ -n "$DADOS_FALSOS" ]; then
   esac
 fi
 
-CARIMBO=$(date -u +%Y%m%dT%H%M%SZ)
-NOME="openbot-$CARIMBO.tar.gz"
+while :; do
+  CARIMBO=$(date -u +%Y%m%dT%H%M%SZ)
+  NOME="openbot-$CARIMBO.tar.gz"
+  [ -e "$DESTINO/$NOME" ] || break
+  sleep 1   # já existe um backup deste segundo: espera o próximo
+done
 PARCIAL="$DESTINO/$NOME.partial"
 FINAL="$DESTINO/$NOME"
-[ ! -e "$FINAL" ] || falha "já existe $FINAL (rode de novo daqui a 1 segundo)."
 rm -f -- "$DESTINO"/*.partial
 
 limpar() { rm -f -- "$PARCIAL"; }
