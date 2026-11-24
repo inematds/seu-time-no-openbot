@@ -10,7 +10,7 @@ CONTAINER=${OPENBOT_CONTAINER:-}
 if [ -z "$CONTAINER" ]; then
   _dir=${OPENBOT_COMPOSE_DIR:-$PWD}
   if [ -f "$_dir/compose.yaml" ] || [ -f "$_dir/docker-compose.yml" ]; then
-    CONTAINER=$(docker compose --project-directory "$_dir" ps --all --quiet openbot 2>/dev/null | head -n 1)
+    CONTAINER=$(docker compose --project-directory "$_dir" ps --all --quiet openbot 2>/dev/null | head -n 1 || true)
   fi
   CONTAINER=${CONTAINER:-openbot}
 fi

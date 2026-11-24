@@ -40,8 +40,16 @@ Do passo 6 em diante (login, provedor, celular, importação, backup e restaura�
 | 7 | Conectar a IA | no app do OpenBot (computador) ou em `openbot.run/app`, abra o servidor e conecte o provedor (Codex, Claude, Gemini ou os modelos grátis do OpenCode) | validado por formato |
 | 8 | Celular | `sudo docker compose exec openbot openbot mobile-connect` mostra o QR code do app do celular | validado por formato |
 | 9 | Seu time | monte o pacote no seu computador (`python3 importar/montar_pacote.py`) e escolha `dist/seu-time-openbot.zip` em **Server settings → Import** no app | validado por formato |
-| 10 | Primeiro backup | `cd /opt/openbot && sudo bash backup.sh` | validado por formato (o script passou no teste com pasta falsa) |
-| 11 | Backup todo dia às 4h | `sudo crontab -e` e acrescente `0 4 * * * cd /opt/openbot && bash backup.sh >> /var/log/openbot-backup.log 2>&1` | validado por formato |
+| 10 | WhatsApp (opcional, chip separado) | no app: **Marketplace → Apps → WhatsApp → Link WhatsApp**, escolha **A number only for OpenBot**, leia o QR code no celular do chip, escolha o modelo do **WhatsApp Orchestrator** e **Add agent**; em **Who can write**, só você (`docs/messaging.md`, "Connect WhatsApp") | validado por formato |
+| 11 | Primeiro backup | `cd /opt/openbot && sudo bash backup.sh` | validado por formato (o script passou no teste com pasta falsa) |
+| 12 | Backup todo dia às 4h | `sudo crontab -e` e acrescente `0 4 * * * cd /opt/openbot && bash backup.sh >> /var/log/openbot-backup.log 2>&1` | validado por formato |
+
+**Quem responde no WhatsApp (passo 10):** é o *WhatsApp Orchestrator*, um agente que o próprio
+OpenBot cria ao ligar o número, e não o Orquestrador do kit. Para o Slack, a documentação diz que
+esse orquestrador "answers short requests itself, and gives other work to the one agent that fits
+best"; para o WhatsApp ela diz só que "one orchestrator answers every linked number". Se o gasto
+mandado pelo WhatsApp não chegar ao Financeiro, diga ao WhatsApp Orchestrator, na primeira conversa,
+para passar gastos ao Financeiro e tarefas ao Organizador. **Não testado com este kit.**
 
 O passo 6 e o 7 o OpenBot pede uma vez só; depois disso o servidor aparece no app do computador,
 no app do celular e em `openbot.run/app`.

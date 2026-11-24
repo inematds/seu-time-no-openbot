@@ -76,7 +76,7 @@ else
   trap voltar EXIT
   if [ "$ESTAVA" = true ]; then
     echo "Parando $CONTAINER para copiar (até 60 s)..."
-    docker stop --time 60 "$CONTAINER" >/dev/null
+    docker stop -t 60 "$CONTAINER" >/dev/null
   fi
   # Usa a própria imagem do OpenBot (já baixada) só para rodar o tar, sem rede, lendo o volume.
   docker run --rm --network none --user 0:0 --entrypoint sh \

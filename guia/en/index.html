@@ -221,7 +221,7 @@
       <li data-h="18h"><b>Photo of the grocery receipt</b><br><span class="mut">recorded with date, amount, and category.</span></li>
       <li data-h="seg"><b>Monday at 8 a.m., your weekly summary</b><br><span class="mut">total, by category, biggest expenses, and the difference from the previous week (when you turn on this routine).</span></li>
     </ol>
-    <p class="rod">Routines are off by default: turn on the ones you want. Reading photos and audio depends on OpenBot and the AI you connect, and has not yet been tested with this kit (<a href="#prova">see what was tested</a>).</p>
+    <p class="rod">The examples show how the team was instructed to respond; they haven’t run inside OpenBot yet. The routines start disabled: you turn on the ones you want. On WhatsApp, the first to receive the message is OpenBot’s own WhatsApp Orchestrator, which should pass the request to the right agent. Reading photos and audio depends on the AI you connect (<a href="#prova">see what was tested</a>).</p>
   </div>
 </div></section>
 
@@ -258,7 +258,7 @@
   <h2>What to change <span class="amb">before letting the team work alone</span></h2>
   <p class="sub">OpenBot itself warns that, by default, agents can edit files, run commands, and use the internet without asking at every step. That is power, and also risk. Five precautions address most of it.</p>
   <div class="grid g3">
-    <div class="card"><h3>✋ Ask first</h3><p>Each agent has a permission level. Change “full access” to “ask first” for all four. An agent you create from another inherits its limits.</p></div>
+    <div class="card"><h3>✋ Ask first</h3><p>Each agent has a permission level. Change “Full access” to “Ask first” for all four. That way, a routine can wait for your approval before acting. An agent you create from another inherits its limits.</p></div>
     <div class="card"><h3>📱 Use a separate WhatsApp SIM</h3><p>OpenBot’s WhatsApp integration is unofficial, and WhatsApp may block the number. Use a SIM just for the team, never your important number.</p></div>
     <div class="card"><h3>👤 A separate AI account</h3><p>The team uses your subscription, and the provider may limit an account it thinks has gone beyond normal use. If your account is for work or is important, use another one for the team.</p></div>
     <div class="card"><h3>🔑 Keep passwords in a vault</h3><p>Passwords, card details, and codes do not belong in the conversation. The kit’s skills already refuse to save them; use a password manager.</p></div>
@@ -320,7 +320,7 @@ Do not install anything, run docker, or change anything before I say yes.</pre>
     <div class="card" id="faq-empresa"><h3>Can I use it at my company?</h3><p>Commercial use of OpenBot requires its paid license (Starter and Team plans, in OpenBot’s own settings). The kit does not change that.</p></div>
     <div class="card"><h3>Am I allowed to use my subscription?</h3><p>It depends on the provider. OpenBot itself says that with Claude through a subscription, the risk ranges from “unclear” to “high” when other people use your agents. Read your provider’s rules, and if the account is important, use another one.</p></div>
     <div class="card"><h3>Could WhatsApp block me?</h3><p>It could. OpenBot uses an unofficial WhatsApp integration. That is why you should use a separate SIM, just for the team.</p></div>
-    <div class="card"><h3>What if an agent makes a mess?</h3><p>With “ask first,” it requests permission. The kit’s skills do not send anything out without your yes and do not delete anything you did not ask them to. Daily backup lets you restore an earlier version.</p></div>
+    <div class="card"><h3>What if an agent makes a mess?</h3><p>With “ask first,” it requests permission. The kit’s skills do not send anything out without your yes and do not delete anything you did not ask them to. And if you installed it on the server and scheduled daily backups, you can roll back.</p></div>
     <div class="card"><h3>Do I need to keep my computer on?</h3><p>If OpenBot runs on your computer, yes. To run it 24 hours a day, use a server; the steps are in the README.</p></div>
     <div class="card"><h3>Can I change the agents?</h3><p>Yes. Each agent’s instructions are in Portuguese, in plain text. Change anything you like, or ask the orchestrator to create a new agent.</p></div>
   </div>

@@ -78,7 +78,7 @@ if [ -n "$DADOS_FALSOS" ]; then
   find "$DADOS_FALSOS" -mindepth 1 -delete
   tar -xzpf "$ARQ" -C "$DADOS_FALSOS"
 else
-  docker stop --time 60 "$CONTAINER" >/dev/null || true
+  docker stop -t 60 "$CONTAINER" >/dev/null || true
   docker run --rm --network none --user 0:0 --entrypoint sh \
     -v "$VOLUME":/data -v "$DIR":/backup:ro \
     "$IMAGEM_AGORA" -c "find /data -mindepth 1 -delete && tar -xzpf '/backup/$NOME' --numeric-owner -C /data"

@@ -221,7 +221,7 @@
       <li data-h="18h"><b>Foto del recibo del mercado</b><br><span class="mut">anotado con fecha, valor y categoría.</span></li>
       <li data-h="seg"><b>El lunes a las 8, el resumen de la semana</b><br><span class="mut">total, por categoría, los gastos más altos y la diferencia con la semana anterior (cuando activas esta rutina).</span></li>
     </ol>
-    <p class="rod">Las rutinas vienen desactivadas: activas las que quieras. La lectura de fotos y audios depende de OpenBot y de la IA que conectes, y aún no se ha probado con este kit (<a href="#prova">ver qué se probó</a>).</p>
+    <p class="rod">Los ejemplos muestran cómo se indicó al equipo que respondiera; todavía no se han ejecutado dentro de OpenBot. Las rutinas empiezan desactivadas: tú activas las que quieras. En WhatsApp, quien recibe primero el mensaje es el propio WhatsApp Orchestrator de OpenBot, que debería pasar la solicitud al agente indicado. La lectura de fotos y audio depende de la IA que conectes (<a href="#prova">consulta lo que se probó</a>).</p>
   </div>
 </div></section>
 
@@ -258,7 +258,7 @@
   <h2>Qué cambiar <span class="amb">antes de dejar al equipo solo</span></h2>
   <p class="sub">OpenBot lo advierte: de forma predeterminada, los agentes pueden modificar archivos, ejecutar comandos y usar internet sin pedir permiso en cada paso. Eso da poder, pero también implica riesgos. Cinco medidas resuelven la mayoría.</p>
   <div class="grid g3">
-    <div class="card"><h3>✋ Preguntar antes</h3><p>Cada agente tiene un nivel de permiso. Cambia el "acceso completo" por "preguntar antes" en los cuatro. Un agente que creas a partir de otro hereda su límite.</p></div>
+    <div class="card"><h3>✋ Preguntar antes</h3><p>Cada agente tiene un nivel de permiso. Cambia “Full access” por “Ask first” en los cuatro. Así, una rutina puede esperar tu aprobación antes de actuar. Un agente que creas a partir de otro hereda su límite.</p></div>
     <div class="card"><h3>📱 WhatsApp con un chip separado</h3><p>El WhatsApp de OpenBot no es oficial, y WhatsApp puede bloquear el número. Usa un chip solo para el equipo, nunca tu número importante.</p></div>
     <div class="card"><h3>👤 Cuenta de IA separada</h3><p>El equipo usa tu suscripción, y el proveedor puede limitar una cuenta si cree que superó el uso normal. Si tu cuenta es del trabajo o es importante, usa otra para el equipo.</p></div>
     <div class="card"><h3>🔑 Contraseñas solo en la bóveda</h3><p>No compartas contraseñas, datos de tarjetas ni códigos en la conversación. Las skills del kit ya se niegan a guardar esa información; usa una bóveda de contraseñas.</p></div>
@@ -320,7 +320,7 @@ No instales nada, no ejecutes Docker ni cambies nada antes de que te dé el sí.
     <div class="card" id="faq-empresa"><h3>¿Puedo usarlo en mi empresa?</h3><p>El uso comercial de OpenBot requiere su licencia de pago (planes Starter y Team, en la configuración del propio OpenBot). El kit no cambia esto.</p></div>
     <div class="card"><h3>¿Está permitido usar mi suscripción?</h3><p>Depende del proveedor. OpenBot mismo dice que, con Claude por suscripción, el riesgo va de "no está claro" a "alto" cuando otras personas usan tus agentes. Lee las reglas de tu proveedor y, si la cuenta es importante, usa otra.</p></div>
     <div class="card"><h3>¿WhatsApp puede bloquearlo?</h3><p>Puede. OpenBot usa un WhatsApp no oficial. Por eso, usa un chip separado, solo para el equipo.</p></div>
-    <div class="card"><h3>¿Y si el agente hace algo mal?</h3><p>Con "preguntar antes", pide permiso. Las skills del kit no envían nada a otras personas sin tu aprobación ni borran nada que no hayas pedido. El respaldo diario te permite volver atrás.</p></div>
+    <div class="card"><h3>¿Y si el agente hace algo mal?</h3><p>Con "preguntar antes", pide permiso. Las skills del kit no envían nada a otras personas sin tu aprobación ni borran nada que no hayas pedido. Y, si lo instalaste en el servidor y programaste copias de seguridad diarias, puedes volver atrás.</p></div>
     <div class="card"><h3>¿Tengo que dejar la computadora encendida?</h3><p>Si OpenBot se ejecuta en tu computadora, sí. Para tenerlo funcionando 24 horas, ejecútalo en un servidor; los pasos están en el README.</p></div>
     <div class="card"><h3>¿Puedo cambiar los agentes?</h3><p>Sí. Las instrucciones de cada uno están en portugués, en un texto sencillo. Cambia lo que quieras o pídele al orquestador que cree un agente nuevo.</p></div>
   </div>

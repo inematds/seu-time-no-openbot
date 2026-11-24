@@ -174,6 +174,7 @@ sudo bash backup.sh                                          # validado por form
 | 5 | Entrar na conta OpenBot | `docker compose exec openbot openbot login` (e-mail + código) | 🧠 | validado por formato |
 | 6 | Conectar a IA | no app ou em `openbot.run/app`: Codex, Claude, Gemini ou OpenCode (Free) | 🧠 | validado por formato |
 | 7 | Importar o time | Server settings → Import → `seu-time-openbot.zip` | 🧠 | validado por formato |
+| 7b | Ligar o WhatsApp (opcional) | chip separado; Marketplace → Apps → WhatsApp → *A number only for OpenBot*. Quem responde é o *WhatsApp Orchestrator* do próprio OpenBot, que deve passar gastos ao Financeiro ([VPS.md](instalacao/VPS.md), passo 10) | 🧠 | não testado |
 | 8 | Baixar as permissões | cada agente em *Ask first* (SEGURANCA.md §1) | 🧠 | validado por formato |
 | 9 | Tema | copiar `themes/inema.json` para a pasta `themes` (acima) | ⚙️ | validado por formato |
 | 10 | Ligar as rotinas | uma por vez: Plano do dia, Resumo da semana, Revisão da semana | 🧠 | validado por formato |

@@ -35,7 +35,7 @@ RAIZ = Path(__file__).resolve().parent
 # src/main/skill-package.ts:12  SKILL_FRONTMATTER
 SKILL_FRONTMATTER = re.compile(r"^---\s*\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)")
 # resources/managed-skills/openbot-skill-creator/SKILL.md:12  name até 80 caracteres
-# (também src/main/skill-package.ts:84)
+# (também src/main/skill-package.ts:87)
 NOME_MAX = 80
 # openbot-skill-creator/SKILL.md:12  description até 500. O código aceita até 1024
 # (packages/contracts/src/ipc-skills.ts:113, SKILL_DESCRIPTION_MAX_LENGTH); usamos o guia, que é o menor.
@@ -54,7 +54,7 @@ PULA_ARQUIVOS = {".DS_Store"}
 
 
 def caminho_inseguro(nome: str) -> bool:
-    """src/main/skill-package.ts:156-170  isUnsafeArchivePath."""
+    """src/main/skill-package.ts:158-171  isUnsafeArchivePath."""
     partes = nome.split("/")
     arquivo = partes[-1].lower() if partes else ""
     return (
@@ -70,7 +70,7 @@ def caminho_inseguro(nome: str) -> bool:
 
 
 def slugify(nome: str) -> str:
-    """src/main/skill-package.ts:172-183  slugify (sem o recurso de hash para nome vazio)."""
+    """src/main/skill-package.ts:173-184  slugify (sem o recurso de hash para nome vazio)."""
     v = unicodedata.normalize("NFKD", nome.lower())
     v = re.sub(r"[^a-z0-9]+", "-", v).strip("-")[:64]
     return v
@@ -91,24 +91,24 @@ def validar_skill(pasta: Path) -> list[str]:
     erros: list[str] = []
     skill = pasta / "SKILL.md"
     if not skill.is_file():
-        return [f"{pasta.name}: falta SKILL.md na raiz (skill-package.ts:80)"]
+        return [f"{pasta.name}: falta SKILL.md na raiz (skill-package.ts:79)"]
     try:
-        texto = skill.read_text(encoding="utf-8")  # skill-package.ts:81 lê como UTF-8 estrito
+        texto = skill.read_text(encoding="utf-8")  # skill-package.ts:80 lê como UTF-8 estrito
     except UnicodeDecodeError:
-        return [f"{pasta.name}: SKILL.md não é UTF-8 (skill-package.ts:81)"]
+        return [f"{pasta.name}: SKILL.md não é UTF-8 (skill-package.ts:80)"]
     meta, corpo = ler_frontmatter(texto)
     if meta is None:
-        return [f"{pasta.name}: SKILL.md sem frontmatter YAML entre --- (skill-package.ts:83)"]
+        return [f"{pasta.name}: SKILL.md sem frontmatter YAML entre --- (skill-package.ts:82)"]
     if not isinstance(meta, dict) or "__erro__" in meta:
-        return [f"{pasta.name}: frontmatter não é um mapa YAML válido (skill-package.ts:85-86)"]
+        return [f"{pasta.name}: frontmatter não é um mapa YAML válido (skill-package.ts:83-84)"]
     nome = meta.get("name").strip() if isinstance(meta.get("name"), str) else ""
     desc = meta.get("description").strip() if isinstance(meta.get("description"), str) else ""
     if not nome:
-        erros.append(f"{pasta.name}: falta name (skill-package.ts:89)")
+        erros.append(f"{pasta.name}: falta name (skill-package.ts:87)")
     elif len(nome) > NOME_MAX:
         erros.append(f"{pasta.name}: name com {len(nome)} caracteres, máximo {NOME_MAX} (skill-creator SKILL.md:12)")
     if not desc:
-        erros.append(f"{pasta.name}: falta description (skill-package.ts:89)")
+        erros.append(f"{pasta.name}: falta description (skill-package.ts:87)")
     elif len(desc) > DESCRICAO_MAX:
         erros.append(f"{pasta.name}: description com {len(desc)} caracteres, máximo {DESCRICAO_MAX} (skill-creator SKILL.md:12)")
     ex = meta.get("example-prompt")
@@ -118,7 +118,7 @@ def validar_skill(pasta: Path) -> list[str]:
         elif len(ex.strip()) > EXEMPLO_MAX:
             erros.append(f"{pasta.name}: example-prompt com {len(ex.strip())} caracteres, máximo {EXEMPLO_MAX} (skill-creator SKILL.md:12)")
     if nome and slugify(nome) != slugify(nome.encode("ascii", "ignore").decode()):
-        erros.append(f"{pasta.name}: name com acento vira slug '{slugify(nome)}' (skill-package.ts:172); use só ASCII no name")
+        erros.append(f"{pasta.name}: name com acento vira slug '{slugify(nome)}' (skill-package.ts:173); use só ASCII no name")
     if nome and not slugify(nome):
         erros.append(f"{pasta.name}: name não gera slug (skill-package.ts:180)")
     if corpo is not None and not corpo.strip():
@@ -140,7 +140,7 @@ def validar_skill(pasta: Path) -> list[str]:
                 erros.append(f"{pasta.name}: link simbólico {rel} (skill-package.ts:42; skill-creator SKILL.md:14)")
                 continue
             if caminho_inseguro(rel):
-                erros.append(f"{pasta.name}: arquivo proibido {rel} (.env, chave privada ou arquivo compactado; skill-package.ts:156)")
+                erros.append(f"{pasta.name}: arquivo proibido {rel} (.env, chave privada ou arquivo compactado; skill-package.ts:158)")
             total += p.stat().st_size
             n += 1
     if n > ARQUIVOS_MAX:
@@ -280,7 +280,7 @@ def validar_manifesto(m: dict, arquivos: set[str] | None = None) -> list[str]:
             e.append(f"agente {i}: key inválida {k!r} (ipc-agent-import.ts:102)")
             continue
         if k in chaves:
-            e.append(f"agente {k}: key repetida (agent-import-manifest.ts:76)")
+            e.append(f"agente {k}: key repetida (agent-import-manifest.ts:75)")
         chaves.add(k)
         nome = a.get("name").strip() if isinstance(a.get("name"), str) else ""
         if not nome or len(nome) > LIM["agentName"]:
@@ -293,14 +293,14 @@ def validar_manifesto(m: dict, arquivos: set[str] | None = None) -> list[str]:
         for campo in ("avatar", "files"):
             v = a.get(campo)
             if v is not None and not (isinstance(v, str) and v.rstrip("/").startswith(prefixo) and not caminho_inseguro(v.rstrip("/"))):
-                e.append(f"agente {k}: {campo} tem que começar com {prefixo} (agent-import-manifest.ts:163-169)")
+                e.append(f"agente {k}: {campo} tem que começar com {prefixo} (agent-import-manifest.ts:162-170)")
         skills = a.get("skills", [])
         if not isinstance(skills, list) or len(skills) > LIM["agentSkills"]:
             e.append(f"agente {k}: até 32 skills (agent-import-manifest.ts:170)")
             skills = []
         for s in skills:
             if not (isinstance(s, str) and s.rstrip("/").startswith(prefixo) and not caminho_inseguro(s.rstrip("/"))):
-                e.append(f"agente {k}: caminho de skill inválido {s!r} (agent-import-manifest.ts:183)")
+                e.append(f"agente {k}: caminho de skill inválido {s!r} (agent-import-manifest.ts:182)")
             elif arquivos is not None and f"{s.rstrip('/')}/SKILL.md" not in arquivos:
                 e.append(f"agente {k}: {s}/SKILL.md não está no zip (grok-bot SKILL.md, Checklist)")
         e += validar_rotinas(a.get("routines", []), f"agente {k}")
@@ -313,10 +313,10 @@ def validar_manifesto(m: dict, arquivos: set[str] | None = None) -> list[str]:
     for i, c in enumerate(canais, 1):
         k = c.get("key") if isinstance(c, dict) else None
         if not (texto_limitado(k, LIM["key"]) and CHAVE.match(k)):
-            e.append(f"canal {i}: key inválida (agent-import-manifest.ts:111)")
+            e.append(f"canal {i}: key inválida (agent-import-manifest.ts:110)")
             continue
         if k in vistos:
-            e.append(f"canal {k}: key repetida (agent-import-manifest.ts:87)")
+            e.append(f"canal {k}: key repetida (agent-import-manifest.ts:88)")
         vistos.add(k)
         nome = c.get("name").strip() if isinstance(c.get("name"), str) else ""
         if not nome or len(nome) > LIM["agentName"]:
@@ -334,14 +334,14 @@ def validar_manifesto(m: dict, arquivos: set[str] | None = None) -> list[str]:
             e.append(f"canal {k}: membros que não são agentes do pacote: {fora} (agent-import-manifest.ts:122)")
         lider = c.get("lead")
         if lider is not None and lider not in membros:
-            e.append(f"canal {k}: lead tem que ser um membro (agent-import-manifest.ts:124)")
+            e.append(f"canal {k}: lead tem que ser um membro (agent-import-manifest.ts:125)")
         e += validar_rotinas(c.get("routines", []), f"canal {k}")
         e += validar_memorias(c.get("memories", []), f"canal {k}", LIM["channelMemories"])
     return e
 
 
 def validar_rotinas(rotinas, dono: str) -> list[str]:
-    """agent-import-manifest.ts:200-237."""
+    """agent-import-manifest.ts:201-238."""
     if not isinstance(rotinas, list):
         return [f"{dono}: routines tem que ser lista (agent-import-manifest.ts:172)"]
     e = []
@@ -368,7 +368,7 @@ def validar_rotinas(rotinas, dono: str) -> list[str]:
             except Exception:
                 e.append(f"{rot}: timezone {tz!r} não é um nome IANA (grok-bot SKILL.md, Field rules)")
         if "active" in r and not isinstance(r["active"], bool):
-            e.append(f"{rot}: active tem que ser true ou false (agent-import-manifest.ts:231)")
+            e.append(f"{rot}: active tem que ser true ou false (agent-import-manifest.ts:232)")
     return e
 
 
@@ -386,7 +386,7 @@ def validar_memorias(mems, dono: str, maximo: int) -> list[str]:
 
 
 def validar_zip(caminho: Path) -> list[str]:
-    """grok-bot SKILL.md "Checklist" + src/main/agent-import-service.ts:404-416."""
+    """grok-bot SKILL.md "Checklist" + src/main/agent-import-service.ts:407-416."""
     e: list[str] = []
     try:
         z = zipfile.ZipFile(caminho)
@@ -400,7 +400,7 @@ def validar_zip(caminho: Path) -> list[str]:
             return e + [f"{caminho.name}: openbot-import.json tem que estar na raiz (grok-bot SKILL.md, Checklist)"]
         for n in nomes:
             if caminho_inseguro(n):
-                e.append(f"{caminho.name}: arquivo proibido no pacote: {n} (skill-package.ts:156)")
+                e.append(f"{caminho.name}: arquivo proibido no pacote: {n} (skill-package.ts:158)")
         m = json.loads(z.read("openbot-import.json").decode("utf-8"))
         e += validar_manifesto(m, set(nomes))
         # cada skill dentro do pacote também passa pelas regras de skill

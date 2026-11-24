@@ -221,7 +221,7 @@
       <li data-h="18h"><b>Foto do recibo do mercado</b><br><span class="mut">anotado com data, valor e categoria.</span></li>
       <li data-h="seg"><b>Segunda às 8h, o resumo da semana</b><br><span class="mut">total, por categoria, os maiores gastos e a diferença para a semana anterior (quando você liga essa rotina).</span></li>
     </ol>
-    <p class="rod">As rotinas chegam desligadas: você liga as que quiser. A leitura de foto e de áudio depende do OpenBot e da IA que você conectar, e ainda não foi testada com este kit (<a href="#prova">veja o que foi testado</a>).</p>
+    <p class="rod">Os exemplos mostram como o time foi instruído a responder; eles ainda não rodaram dentro do OpenBot. As rotinas chegam desligadas: você liga as que quiser. No WhatsApp, quem recebe a mensagem primeiro é o orquestrador de WhatsApp do próprio OpenBot, que deve passar o pedido ao agente certo. A leitura de foto e de áudio depende da IA que você conectar (<a href="#prova">veja o que foi testado</a>).</p>
   </div>
 </div></section>
 
@@ -258,7 +258,7 @@
   <h2>O que mudar <span class="amb">antes de deixar o time sozinho</span></h2>
   <p class="sub">O próprio OpenBot avisa: por padrão, os agentes podem mexer em arquivos, rodar comandos e usar a internet sem pedir licença a cada passo. Isso é poder, e também risco. Cinco cuidados resolvem a maior parte.</p>
   <div class="grid g3">
-    <div class="card"><h3>✋ Perguntar antes</h3><p>Cada agente tem um nível de permissão. Troque o "acesso completo" por "perguntar antes" nos quatro. Um agente que você cria a partir de outro herda o limite dele.</p></div>
+    <div class="card"><h3>✋ Perguntar antes</h3><p>Cada agente tem um nível de permissão. Troque o "acesso completo" (Full access) por "perguntar antes" (Ask first) nos quatro. Com isso, uma rotina pode ficar esperando a sua aprovação antes de agir. Um agente que você cria a partir de outro herda o limite dele.</p></div>
     <div class="card"><h3>📱 WhatsApp com chip separado</h3><p>O WhatsApp do OpenBot não é o oficial, e o WhatsApp pode bloquear o número. Use um chip só para o time, nunca o seu número importante.</p></div>
     <div class="card"><h3>👤 Conta de IA separada</h3><p>O time usa a sua assinatura, e o provedor pode limitar uma conta que ele ache que passou do uso normal. Se a sua conta é do trabalho ou importante, use outra para o time.</p></div>
     <div class="card"><h3>🔑 Senha só no cofre</h3><p>Senha, cartão e código não entram na conversa. As skills do kit já se recusam a guardar isso; use um cofre de senhas.</p></div>
@@ -320,7 +320,7 @@ Não instale nada, não rode docker e não mude nada antes do meu sim.</pre>
     <div class="card" id="faq-empresa"><h3>Posso usar na minha empresa?</h3><p>Uso comercial do OpenBot pede a licença paga dele (planos Starter e Team, nas configurações do próprio OpenBot). O kit não muda isso.</p></div>
     <div class="card"><h3>Usar a minha assinatura é permitido?</h3><p>Depende do provedor. O próprio OpenBot diz que, no Claude pela assinatura, o risco vai de "não claro" a "alto" quando outras pessoas usam os seus agentes. Leia as regras do seu provedor e, se a conta é importante, use outra.</p></div>
     <div class="card"><h3>O WhatsApp pode bloquear?</h3><p>Pode. O OpenBot usa um WhatsApp não oficial. Por isso: chip separado, só para o time.</p></div>
-    <div class="card"><h3>E se o agente fizer besteira?</h3><p>Com "perguntar antes", ele pede licença. As skills do kit não enviam nada para fora sem o seu sim e não apagam nada que você não pediu. E o backup diário deixa voltar atrás.</p></div>
+    <div class="card"><h3>E se o agente fizer besteira?</h3><p>Com "perguntar antes", ele pede licença. As skills do kit não enviam nada para fora sem o seu sim e não apagam nada que você não pediu. E, se você instalou no servidor e agendou o backup diário, dá para voltar atrás.</p></div>
     <div class="card"><h3>Precisa deixar o computador ligado?</h3><p>Se o OpenBot roda no seu computador, sim. Para 24 horas, rode num servidor; o passo a passo está no README.</p></div>
     <div class="card"><h3>Posso mudar os agentes?</h3><p>Pode. As instruções de cada um estão em português, num texto simples. Mude o que quiser, ou peça ao orquestrador para criar um agente novo.</p></div>
   </div>
