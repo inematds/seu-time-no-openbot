@@ -24,7 +24,8 @@ cores do INEMA. Você precisa do OpenBot instalado (computador ou VPS) e de uma 
 
 ## Como começar (sem ser técnico)
 
-Abra o Claude Code ou o Codex numa pasta qualquer e cole este pedido:
+Abra a IA que você já usa (ChatGPT, Claude ou Gemini, com a pesquisa na internet ligada, ou o
+Claude Code / Codex, se você já usa) numa conversa nova e cole este pedido:
 
 ```text
 Leia o kit https://github.com/inematds/seu-time-no-openbot (README.md, SEGURANCA.md e

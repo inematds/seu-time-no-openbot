@@ -25,7 +25,7 @@ INEMA color theme. You need OpenBot installed (on your computer or VPS) and an A
 
 ## How to get started (no technical skills needed)
 
-Open Claude Code or Codex in any folder and paste this request:
+Open the AI you already use (ChatGPT, Claude, or Gemini, with web search enabled, or Claude Code / Codex, if you already use them) in a new conversation and paste this request:
 
 ```text
 Read the kit at https://github.com/inematds/seu-time-no-openbot (README.md, SEGURANCA.md, and

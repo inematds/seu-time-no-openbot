@@ -26,7 +26,7 @@ instalado (en una computadora o en un VPS) y una cuenta de IA.
 
 ## Cómo empezar (sin conocimientos técnicos)
 
-Abre Claude Code o Codex en cualquier carpeta y pega esta solicitud:
+Abre la IA que ya usas (ChatGPT, Claude o Gemini, con la búsqueda en internet activada, o Claude Code / Codex, si ya los usas) en una conversación nueva y pega esta solicitud:
 
 ```text
 Lee el kit https://github.com/inematds/seu-time-no-openbot (README.md, SEGURANCA.md e
