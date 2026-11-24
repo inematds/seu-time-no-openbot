@@ -45,7 +45,7 @@ Las skills y los agentes del kit están escritos en portugués; pídele a tu age
 | `skills/` | 4 skills en portugués en el formato de OpenBot: Orquestador del equipo, Asesor financiero (con `resumo_semana.py`), Organizador personal, Revisor de entregas | validado por formato |
 | `importar/` | `agentes.json` + `montar_pacote.py`: crea `dist/seu-time-openbot.zip` con los 4 agentes, las instrucciones, las skills, 3 rutinas (desactivadas) y el canal "Meu time" | validado por formato |
 | `instalacao/compose.yaml` | Docker con seccomp oficial, `no-new-privileges`, límite de 6 GB, versión fija y volumen propio, sin puertos publicados | **probado en el VPS el 24/11/2026** (inicio y `status`) |
-| `instalacao/backup.sh`, `restaurar.sh` | copia de seguridad del volumen completo con rotación, verificación y restauración | validado por formato + prueba con una carpeta ficticia |
+| `instalacao/backup.sh`, `restaurar.sh` | copia de seguridad del volumen completo con rotación, verificación y restauración | probado en el VPS el 24/11 (copia de 50 MB + restauración en el volumen real) + prueba con una carpeta ficticia |
 | `instalacao/VPS.md` | OpenBot en un VPS, desde cero, comando por comando | pasos 1–5 probados en el VPS el 24/11; el resto, validado por formato |
 | `instalacao/servidor-sem-docker.md` | la opción oficial sin Docker | validado por formato |
 | `SEGURANCA.md` | lista de verificación: permisos, cuenta de IA, WhatsApp, bóveda de contraseñas, copia de seguridad, licencia | verificado en la documentación |
@@ -164,7 +164,7 @@ sudo sha256sum -c seccomp.sha256
 sudo docker compose pull && sudo docker compose up -d       # testado na VPS em 24/11/2026
 sudo docker compose exec -T openbot openbot status          # testado na VPS em 24/11/2026
 sudo docker compose exec openbot openbot login               # validado por formato
-sudo bash backup.sh                                          # validado por formato
+sudo bash backup.sh                                          # probado en el VPS el 24/11
 ```
 
 ## El proceso, de principio a fin

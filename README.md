@@ -42,7 +42,7 @@ onde eu começaria. Não instale nada, não rode docker e não mude nada antes d
 | `skills/` | 4 skills em português no formato do OpenBot: Orquestrador do time, Assessor financeiro (com `resumo_semana.py`), Organizador pessoal, Revisor de entregas | validado por formato |
 | `importar/` | `agentes.json` + `montar_pacote.py`: monta `dist/seu-time-openbot.zip` com os 4 agentes, as instruções, as skills, 3 rotinas (desligadas) e o canal "Meu time" | validado por formato |
 | `instalacao/compose.yaml` | Docker com o seccomp oficial, `no-new-privileges`, limite de 6 GB, versão fixa e volume próprio, sem porta publicada | **testado na VPS em 24/11/2026** (subida e `status`) |
-| `instalacao/backup.sh`, `restaurar.sh` | backup do volume inteiro com rotação, conferência e restauração | validado por formato + teste com pasta falsa |
+| `instalacao/backup.sh`, `restaurar.sh` | backup do volume inteiro com rotação, conferência e restauração | testado na VPS em 24/11 (backup de 50 MB + restauração no volume real) + teste com pasta falsa |
 | `instalacao/VPS.md` | OpenBot numa VPS, do zero, comando por comando | passos 1–5 testados na VPS em 24/11; o resto validado por formato |
 | `instalacao/servidor-sem-docker.md` | a opção oficial sem Docker | validado por formato |
 | `SEGURANCA.md` | checklist: permissão, conta de IA, WhatsApp, cofre de senhas, backup, licença | conferido na documentação |
@@ -158,7 +158,7 @@ sudo sha256sum -c seccomp.sha256
 sudo docker compose pull && sudo docker compose up -d       # testado na VPS em 24/11/2026
 sudo docker compose exec -T openbot openbot status          # testado na VPS em 24/11/2026
 sudo docker compose exec openbot openbot login               # validado por formato
-sudo bash backup.sh                                          # validado por formato
+sudo bash backup.sh                                          # testado na VPS em 24/11
 ```
 
 ## O processo, do início ao fim

@@ -44,7 +44,7 @@ The kit's skills and agents are written in Portuguese; ask your agent to answer 
 | `skills/` | 4 skills in Portuguese in OpenBot format: Team Orchestrator, Financial Advisor (with `resumo_semana.py`), Personal Organizer, Deliverables Reviewer | format validated |
 | `importar/` | `agentes.json` + `montar_pacote.py`: builds `dist/seu-time-openbot.zip` with the 4 agents, instructions, skills, 3 routines (disabled), and the “Meu time” channel | format validated |
 | `instalacao/compose.yaml` | Docker with official seccomp, `no-new-privileges`, 6 GB limit, pinned version, and its own volume, with no published port | **tested on the VPS on 24/11/2026** (startup and `status`) |
-| `instalacao/backup.sh`, `restaurar.sh` | full-volume backup with rotation, verification, and restoration | format validated + test with a dummy folder |
+| `instalacao/backup.sh`, `restaurar.sh` | full-volume backup with rotation, verification, and restoration | tested on the VPS on 11/24 (50 MB backup + restore on the real volume) + test with a dummy folder |
 | `instalacao/VPS.md` | OpenBot on a VPS, from scratch, command by command | steps 1–5 tested on the VPS on 24/11; the rest format validated |
 | `instalacao/servidor-sem-docker.md` | the official non-Docker option | format validated |
 | `SEGURANCA.md` | checklist: permissions, AI account, WhatsApp, password vault, backup, license | checked against the documentation |
@@ -163,7 +163,7 @@ sudo sha256sum -c seccomp.sha256
 sudo docker compose pull && sudo docker compose up -d       # testado na VPS em 24/11/2026
 sudo docker compose exec -T openbot openbot status          # testado na VPS em 24/11/2026
 sudo docker compose exec openbot openbot login               # validado por formato
-sudo bash backup.sh                                          # validado por formato
+sudo bash backup.sh                                          # tested on the VPS on 11/24
 ```
 
 ## The process, start to finish

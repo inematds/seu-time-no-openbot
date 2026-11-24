@@ -41,7 +41,7 @@ Do passo 6 em diante (login, provedor, celular, importação, backup e restaura�
 | 8 | Celular | `sudo docker compose exec openbot openbot mobile-connect` mostra o QR code do app do celular | validado por formato |
 | 9 | Seu time | monte o pacote no seu computador (`python3 importar/montar_pacote.py`) e escolha `dist/seu-time-openbot.zip` em **Server settings → Import** no app | validado por formato |
 | 10 | WhatsApp (opcional, chip separado) | no app: **Marketplace → Apps → WhatsApp → Link WhatsApp**, escolha **A number only for OpenBot**, leia o QR code no celular do chip, escolha o modelo do **WhatsApp Orchestrator** e **Add agent**; em **Who can write**, só você (`docs/messaging.md`, "Connect WhatsApp") | validado por formato |
-| 11 | Primeiro backup | `cd /opt/openbot && sudo bash backup.sh` | validado por formato (o script passou no teste com pasta falsa) |
+| 11 | Primeiro backup | `cd /opt/openbot && sudo bash backup.sh` | testado na VPS em 24/11: backup de 50 MB e `restaurar.sh … --confirmo` no volume real, container voltou sozinho |
 | 12 | Backup todo dia às 4h | `sudo crontab -e` e acrescente `0 4 * * * cd /opt/openbot && bash backup.sh >> /var/log/openbot-backup.log 2>&1` | validado por formato |
 
 **Quem responde no WhatsApp (passo 10):** é o *WhatsApp Orchestrator*, um agente que o próprio
